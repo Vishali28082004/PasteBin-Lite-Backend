@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: config.FRONTEND_URL || "http://localhost:3000",
+    origin: "https://pastebin-frontend-mauve.vercel.app/",
     credentials: true,
   })
 );
