@@ -9,13 +9,15 @@ import cors from "cors";
 const app = express();
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://pastebin-frontend-mauve.vercel.app",
-    credentials: true,
-  })
-);
 
+const corsOptions = {
+  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  credentials: true,
+  methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}
+
+app.use(cors(corsOptions))
 
 app.use("/api", pasteRoutes);
 
