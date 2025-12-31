@@ -10,8 +10,9 @@ const app = express();
 
 app.use(express.json());
 
+console.log('process.env.FRONTEND_URL: ', process.env.FRONTEND_URL);
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  origin: "https://pastebin-frontend-mauve.vercel.app",
   credentials: true,
   methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
